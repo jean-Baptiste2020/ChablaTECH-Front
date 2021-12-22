@@ -1,0 +1,100 @@
+body .clip {
+    position: fixed;
+    bottom: 3rem;
+    left: 3rem;
+    width: 0rem;
+    height: 0rem;
+    border-radius: 100%;
+  }
+  body .clip.anim {
+    -webkit-animation: open 1.5s ease-in;
+    animation: open 1.5s ease-in;
+  }
+  @-webkit-keyframes open {
+    0% {
+      bottom: 3rem;
+      left: 3rem;
+      width: 0rem;
+      height: 0rem;
+      -webkit-clip-path: circle(0rem at center);
+      clip-path: circle(0rem at center);
+    }
+    100% {
+      bottom: calc(-250vmax + 3rem);
+      left: calc(-250vmax + 3rem);
+      width: 500vmax;
+      height: 500vmax;
+      -webkit-clip-path: circle(100% at center);
+      clip-path: circle(100% at center);
+    }
+  }
+  @keyframes open {
+    0% {
+      bottom: 3rem;
+      left: 3rem;
+      width: 0rem;
+      height: 0rem;
+      -webkit-clip-path: circle(0rem at center);
+      clip-path: circle(0rem at center);
+    }
+    100% {
+      bottom: calc(-250vmax + 3rem);
+      left: calc(-250vmax + 3rem);
+      width: 500vmax;
+      height: 500vmax;
+      -webkit-clip-path: circle(100% at center);
+      clip-path: circle(100% at center);
+    }
+  }
+  body .cont {
+    background: var(--background);
+    color: var(--color);
+  }
+  body .cont:not(.dark) {
+    --background: #fcfbfe;
+    --color: #323133;
+    --cardbackground: #ffffff;
+    --cardborder: #e9e9e9;
+    --cardtext: #323133;
+    --cardtext2: #3c3b3d;
+    --cardshadow: rgba(0, 0, 0, 0.1);
+    --accent: #bf263c;
+  }
+  body .cont.dark {
+    --background: #1c1b20;
+    --color: #f5f7fa;
+    --cardbackground: #222126;
+    --cardborder: #252429;
+    --cardtext: #f5f7fa;
+    --cardtext2: #e6e9ed;
+    --cardshadow: rgba(0, 0, 0, 0.1);
+    --accent: #d8334a;
+  }
+  body .cont *[class*="card"] {
+    background: var(--cardbackground);
+    color: var(--cardtext);
+    box-shadow: 0 0 1rem -0.25rem var(--cardshadow);
+  }
+  body .cont *[class*="card"].card-b {
+    border: 1px solid var(--cardborder);
+  }
+  body .cont .darkmode {
+    z-index: 500;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 1.75rem;
+    padding: 1rem;
+    margin: 1px;
+    border-radius: 100%;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 1rem -0.25rem var(--accent),
+      inset 0 0 1rem -0.75rem var(--accent);
+    color: var(--accent);
+    cursor: pointer;
+    transition: 0.25s -0.05s;
+  }
+  body .cont .darkmode:hover {
+    box-shadow: 0 0 1rem -0.25rem var(--accent),
+      inset 0 0 1rem -0.25rem var(--accent);
+  }

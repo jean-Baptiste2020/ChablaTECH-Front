@@ -1,0 +1,41 @@
+// _sign-up.scss
+// 
+// Template's sign up page styles.
+// 
+
+
+
+
+.sign-up-header {
+	height: 550px;
+	margin-top: -120.8px;
+	padding-top: 137.8px;
+	border-radius: 12px;
+	box-shadow: $shadow-1;
+	background-size: cover;
+	background-position: center;
+	text-align: center;
+
+	@media( min-width: $lg ){
+		margin-top: -62.8px;
+	}
+
+	* {
+		color: $color-gray-1;
+	}
+
+	.content {
+		padding-top: 80px;
+		max-width: 480px;
+		margin: auto;
+
+		h1 {
+			font-size: 36px;
+
+			@media( min-width: $md) {
+				font-size: 48px;
+			}
+		}
+	}
+}
+// Sign Up Page
