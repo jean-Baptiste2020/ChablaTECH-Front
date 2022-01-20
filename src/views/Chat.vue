@@ -1,8 +1,8 @@
 <template>
   <main>
+    <br />
     <nav>
       <div class="nav-left">
-        <img src="../assets/images/logo.png" class="logo" />
         <ul>
           <li>
             <img src="../assets/images/notification.png" />
@@ -20,74 +20,53 @@
           <img src="../assets/images/search.png" />
           <input type="text" placeholder="Search" />
         </div>
-        <div class="nav-user-icon online">
-          <a-dropdown>
-            <a class="ant-dropdown-link" @click="(e) => e.preventDefault()">
-              <img src="../assets/images/profile-pic.png" />
-            </a>
-            <a-menu slot="overlay">
-              <div class="settings-menu">
-                <div id="dark-btn">
-                  <span></span>
-                </div>
-                <div class="settings-menu">
-                  <div id="dark-btn">
-                    <span></span>
-                  </div>
-                  <div class="settings-menu-inner">
-                    <a-menu-item>
-                      <div class="user-profile">
-                        <img src="images/profile-pic.png" />
-                        <div>
-                          <p>John Nicholson</p>
-                          <a href="#">See Your Profile</a>
-                        </div>
-                      </div>
-                    </a-menu-item>
-                    <hr />
-                    <a-menu-item>
-                      <div class="user-profile">
-                        <img src="images/feedback.png" />
-                        <div>
-                          <p>Give Feedback</p>
-                          <a href="#">Help us to improve the new design</a>
-                        </div>
-                      </div>
-                    </a-menu-item>
-                    <hr />
-                    <a-menu-item>
-                      <div class="settings-links">
-                        <img src="images/setting.png" class="settings-icon" />
-                        <a href="#">Settings & Privacy</a>
-                        <img src="images/arrow.png" width="10px" />
-                      </div>
-                    </a-menu-item>
-                    <a-menu-item>
-                      <div class="settings-links">
-                        <img src="images/help.png" class="settings-icon" />
-                        <a href="#">Help & Support</a>
-                        <img src="images/arrow.png" width="10px" />
-                      </div>
-                    </a-menu-item>
-                    <a-menu-item>
-                      <div class="settings-links">
-                        <img src="images/display.png" class="settings-icon" />
-                        <a href="#">Display & Accessibility</a>
-                        <img src="images/arrow.png" width="10px" />
-                      </div>
-                    </a-menu-item>
-                    <a-menu-item>
-                      <div class="settings-links">
-                        <img src="images/logout.png" class="settings-icon" />
-                        <a href="#">Logout</a>
-                        <img src="images/arrow.png" width="10px" />
-                      </div>
-                    </a-menu-item>
-                  </div>
-                </div>
-              </div>
-            </a-menu>
-          </a-dropdown>
+        <div class="nav-user-icon online" onclick="settingsMenuToggle();">
+          <img src="../assets/images/profile-pic.png" />
+        </div>
+      </div>
+
+      <div class="settings-menu">
+        <div id="dark-btn">
+          <span></span>
+        </div>
+        <div class="settings-menu-inner">
+          <div class="user-profile">
+            <img src="../assets/images/profile-pic.png" />
+            <div>
+              <p>John Nicholson</p>
+              <a href="#">See Your Profile</a>
+            </div>
+          </div>
+          <hr />
+          <div class="user-profile">
+            <img src="../assets/images/feedback.png" />
+            <div>
+              <p>Give Feedback</p>
+              <a href="#">Help us to improve the new design</a>
+            </div>
+          </div>
+          <hr />
+
+          <div class="settings-links">
+            <img src="../assets/images/setting.png" class="settings-icon" />
+            <a href="#">Settings & Privacy</a>
+            <img src="../assets/images/arrow.png" width="10px" />
+          </div>
+          <div class="settings-links">
+            <img src="../assets/images/help.png" class="settings-icon" />
+            <a href="#">Help & Support</a>
+            <img src="../assets/images/arrow.png" width="10px" />
+          </div>
+          <div class="settings-links">
+            <img src="../assets/images/display.png" class="settings-icon" />
+            <a href="#">Display & Accessibility</a>
+            <img src="../assets/images/arrow.png" width="10px" />
+          </div>
+          <div class="settings-links">
+            <img src="../assets/images/logout.png" class="settings-icon" />
+            <a href="#">Logout</a>
+            <img src="../assets/images/arrow.png" width="10px" />
+          </div>
         </div>
       </div>
     </nav>
@@ -462,7 +441,19 @@
       <p>Copyright 2021 - Lets Try This YouTube Channel</p>
     </div>
 
-    <script type="application/javascript" src="../assets/js/script.js"></script>
+    <script type="application/javascript">
+      var settingsMenu = document.querySelector(".settings-menu");
+      var darkBtn = document.getElementById("dark-btn");
+
+      function settingsMenuToggle() {
+        settingsMenu.classList.toggle("settings-menu-height");
+      }
+
+      darkBtn.onclick = function () {
+        darkBtn.classList.toggle("dark-btn-on");
+        document.body.classList.toggle("dark-theme");
+      };
+    </script>
   </main>
   <!-- End #main -->
 </template>
