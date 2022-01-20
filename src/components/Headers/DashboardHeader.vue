@@ -29,7 +29,7 @@
 
         <!-- Header Control Column -->
         <a-col :span="24" :md="18" class="header-control">
-          <!-- Header Control Buttons -->
+          <!-- La cloche de Notification -->
           <a-dropdown
             :trigger="['click']"
             overlayClassName="header-notifications-dropdown"
@@ -81,7 +81,7 @@
                     </svg>
                     <span>{{ item.time }}</span>
                   </template>
-                  <a slot="title" href="#">{{ item.title }}</a>
+                  <a slot="title" href="/#/chat">{{ item.title }}</a>
                   <a-avatar
                     v-if="item.img"
                     slot="avatar"

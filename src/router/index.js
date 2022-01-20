@@ -119,6 +119,11 @@ let routes = [
 		},
 		component: () => import('../views/Sign-Up.vue'),
 	},
+	{
+		path: '/chat',
+		name: 'Chat',
+		component: () => import('../views/Chat.vue'),
+	},
 ]
 
 // Adding layout property from each route to the meta

@@ -69,6 +69,47 @@
         </div>
       </template>
 
+      <template slot="affectBtn" slot-scope="row">
+        <a-button type="link" :data-id="row.key" @click="showModalA">
+          <Icon type="md-git-merge" />
+        </a-button>
+        <a-modal v-model="visibleA" title="Basic Modal" @ok="handleOk">
+          <p>
+            <Select
+              v-model="model9"
+              style="width: 200px"
+              placeholder="Selectionnez un Groupe"
+            >
+              <Option value="A" label="New York">
+                <span>GROUPE A</span>
+                <span style="float: right; color: #ccc">DESIGNERS</span>
+              </Option>
+              <Option value="B" label="London">
+                <span>GROUPE B</span>
+                <span style="float: right; color: #ccc">FRONTEND</span>
+              </Option>
+              <Option value="C" label="Sydney">
+                <span>GROUPE C</span>
+                <span style="float: right; color: #ccc">BACKEND</span>
+              </Option>
+              <Option value="D" label="Sydney">
+                <span>GROUPE D</span>
+                <span style="float: right; color: #ccc"></span>
+              </Option>
+            </Select>
+          </p>
+          <p>
+            <Input
+              v-model="value17"
+              maxlength="100"
+              show-word-limit
+              type="textarea"
+              placeholder="Enter something..."
+            />
+          </p>
+        </a-modal>
+      </template>
+
       <template slot="editBtn" slot-scope="row">
         <a-button type="link" :data-id="row.key" @click="showModal">
           <svg
@@ -187,12 +228,16 @@ export default {
       // Active button for the "Projects" table's card header radio button group.
       projectHeaderBtns: "all",
       visible: false,
+      visibleA: false,
     };
   },
 
   methods: {
     showModal() {
       this.visible = true;
+    },
+    showModalA() {
+      this.visibleA = true;
     },
     handleOk(e) {
       console.log(e);

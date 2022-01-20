@@ -78,7 +78,7 @@
 
         <p class="font-semibold text-muted">
           Vous n'avez pas de compte ?
-          <router-link to="/sign-in" class="font-bold text-dark"
+          <router-link to="/sign-up" class="font-bold text-dark"
             >S'inscrire</router-link
           >
         </p>

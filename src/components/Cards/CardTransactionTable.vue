@@ -8,7 +8,7 @@
     <template #title>
       <a-row type="flex" align="middle">
         <a-col :span="24" :md="12">
-          <h5 class="font-semibold m-0">Tableau des Utilisateurs</h5>
+          <h5 class="font-semibold m-0">Tableau des Transactions</h5>
         </a-col>
         <a-col
           :span="24"

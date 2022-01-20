@@ -55,10 +55,61 @@
       <!-- / Authors Table Column -->
     </a-row>
     <!-- / Authors Table -->
+
+    <!-- Authors Table -->
+    <a-row :gutter="24" type="flex">
+      <!-- Authors Table Column -->
+      <a-col :span="24" class="mb-24">
+        <!-- Authors Table Card -->
+        <CardAbonTable
+          :data="table1Data"
+          :columns="table1Columns"
+        ></CardAbonTable>
+        <!-- / Authors Table Card -->
+      </a-col>
+      <!-- / Authors Table Column -->
+    </a-row>
+    <!-- / Authors Table -->
+
+    <!-- Authors Table -->
+    <a-row :gutter="24" type="flex">
+      <!-- Authors Table Column -->
+      <a-col :span="24" class="mb-24">
+        <!-- Authors Table Card -->
+        <CardFactTable
+          :data="table1Data"
+          :columns="table1Columns"
+        ></CardFactTable>
+        <!-- / Authors Table Card -->
+      </a-col>
+      <!-- / Authors Table Column -->
+    </a-row>
+    <!-- / Authors Table -->
+
+    <!-- Authors Table -->
+    <a-row :gutter="24" type="flex">
+      <!-- Authors Table Column -->
+      <a-col :span="24" class="mb-24">
+        <!-- Authors Table Card -->
+        <CardTransTable
+          :data="table1Data"
+          :columns="table1Columns"
+        ></CardTransTable>
+        <!-- / Authors Table Card -->
+      </a-col>
+      <!-- / Authors Table Column -->
+    </a-row>
+    <!-- / Authors Table -->
   </div>
 </template>
 
 <script>
+import CardAbonTable from "../components/Cards/CardAbonnementTable.vue";
+
+import CardFactTable from "../components/Cards/CardFactureTable.vue";
+
+import CardTransTable from "../components/Cards/CardTransactionTable.vue";
+
 // "Authors" table component.
 import CardAuthorTable from "../components/Cards/CardAuthorTable";
 
@@ -209,6 +260,11 @@ const table2Columns = [
     dataIndex: "completion",
   },
   {
+    title: "AFFECTATION",
+    scopedSlots: { customRender: "affectBtn" },
+    class: "font-semibold text-muted",
+  },
+  {
     title: "",
     scopedSlots: { customRender: "editBtn" },
     width: 50,
@@ -342,6 +398,9 @@ export default {
     CardAuthorTable,
     CardProjectTable2,
     WidgetCounter,
+    CardAbonTable,
+    CardFactTable,
+    CardTransTable,
   },
   data() {
     return {

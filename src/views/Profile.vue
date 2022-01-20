@@ -37,9 +37,9 @@
             "
           >
             <a-radio-group v-model="profileHeaderBtns" size="small">
-              <a-radio-button value="overview">OVERVIEW</a-radio-button>
-              <a-radio-button value="teams">TEAMS</a-radio-button>
-              <a-radio-button value="projects">PROJECTS</a-radio-button>
+              <a-radio-button value="overview">APERÇU</a-radio-button>
+              <a-radio-button value="teams">ÉQUIPES</a-radio-button>
+              <a-radio-button value="projects">PROJETS</a-radio-button>
             </a-radio-group>
           </a-col>
         </a-row>
@@ -80,8 +80,8 @@
       :bodyStyle="{ paddingTop: '14px' }"
     >
       <template #title>
-        <h6 class="font-semibold">Projects</h6>
-        <p>Architects design houses</p>
+        <h6 class="font-semibold">Projets</h6>
+        <p>Les projets réalisés</p>
       </template>
 
       <a-row type="flex" :gutter="[24, 24]" align="stretch">
@@ -106,36 +106,59 @@
         <!-- Project Column -->
         <a-col :span="24" :md="12" :xl="6">
           <!-- Project Upload Component -->
-          <a-upload
-            name="avatar"
-            list-type="picture-card"
-            class="projects-uploader"
-            :show-upload-list="false"
+          <a-button type="dashed" block @click="modal1 = true">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M3 17C3 16.4477 3.44772 16 4 16H16C16.5523 16 17 16.4477 17 17C17 17.5523 16.5523 18 16 18H4C3.44772 18 3 17.5523 3 17ZM6.29289 6.70711C5.90237 6.31658 5.90237 5.68342 6.29289 5.29289L9.29289 2.29289C9.48043 2.10536 9.73478 2 10 2C10.2652 2 10.5196 2.10536 10.7071 2.29289L13.7071 5.29289C14.0976 5.68342 14.0976 6.31658 13.7071 6.70711C13.3166 7.09763 12.6834 7.09763 12.2929 6.70711L11 5.41421L11 13C11 13.5523 10.5523 14 10 14C9.44771 14 9 13.5523 9 13L9 5.41421L7.70711 6.70711C7.31658 7.09763 6.68342 7.09763 6.29289 6.70711Z"
+                fill="#111827"
+              />
+            </svg>
+            Télécharger un nouveau projet
+          </a-button>
+          <Modal
+            v-model="modal1"
+            title="Common Modal dialog box title"
+            @on-ok="ok"
+            @on-cancel="cancel"
           >
-            <img v-if="false" src="" alt="avatar" />
-            <div v-else>
-              <a-icon v-if="false" type="loading" />
-              <svg
-                v-else
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            <p>
+              <Upload
+                multiple
+                type="drag"
+                action="//jsonplaceholder.typicode.com/posts/"
               >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M3 17C3 16.4477 3.44772 16 4 16H16C16.5523 16 17 16.4477 17 17C17 17.5523 16.5523 18 16 18H4C3.44772 18 3 17.5523 3 17ZM6.29289 6.70711C5.90237 6.31658 5.90237 5.68342 6.29289 5.29289L9.29289 2.29289C9.48043 2.10536 9.73478 2 10 2C10.2652 2 10.5196 2.10536 10.7071 2.29289L13.7071 5.29289C14.0976 5.68342 14.0976 6.31658 13.7071 6.70711C13.3166 7.09763 12.6834 7.09763 12.2929 6.70711L11 5.41421L11 13C11 13.5523 10.5523 14 10 14C9.44771 14 9 13.5523 9 13L9 5.41421L7.70711 6.70711C7.31658 7.09763 6.68342 7.09763 6.29289 6.70711Z"
-                  fill="#111827"
-                />
-              </svg>
+                <div style="padding: 20px 0">
+                  <Icon
+                    type="ios-cloud-upload"
+                    size="52"
+                    style="color: #3399ff"
+                  ></Icon>
+                  <p>
+                    Cliquez ou faites glisser les fichiers ici pour télécharger
+                  </p>
+                </div>
+              </Upload>
+            </p>
+            <p>
+              <Input v-model="value16" type="text" placeholder="Intitulé" />
+            </p>
+            <p>
+              <Input
+                v-model="value17"
+                type="textarea"
+                placeholder="Décrivez l'action menez..."
+              />
+            </p>
+          </Modal>
 
-              <div class="ant-upload-text font-semibold text-dark">
-                Upload New Project
-              </div>
-            </div>
-          </a-upload>
           <!-- / Project Upload Component -->
         </a-col>
         <!-- / Project Column -->
@@ -245,7 +268,16 @@ export default {
 
       // Project cards data
       projects,
+      modal1: false,
     };
+  },
+  methods: {
+    ok() {
+      this.$Message.info("Clicked ok");
+    },
+    cancel() {
+      this.$Message.info("Clicked cancel");
+    },
   },
 };
 </script>
